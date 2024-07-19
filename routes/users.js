@@ -84,6 +84,10 @@ router.put("/:email", (req, res) => {
         // Replace old user entry with updated user
         users = users.filter((user) => user.email != email);
         users.push(filtered_user);
+
+        // Send success message indicating the user has been updated
+        res.send(`User with the email ${email} updated.`);
+
     } else {
         // Send error message if no user found
         res.send("Unable to find user!");
