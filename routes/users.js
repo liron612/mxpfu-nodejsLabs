@@ -76,10 +76,11 @@ router.put("/:email", (req, res) => {
         }
 
         // Extract and update firstName if provided
+        let lastName = req.query.lastName;
         if (lastName) {
             filtered_user.lastName = lastName;
         }
-        let lastName = req.query.lastName;
+        
 
         // Replace old user entry with updated user
         users = users.filter((user) => user.email != email);
